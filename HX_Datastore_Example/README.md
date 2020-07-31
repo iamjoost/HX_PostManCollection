@@ -23,5 +23,5 @@ The Edit Datastore and Delete datastore are using these variables.
 
  ![ALT Text](https://i2.wp.com/iamjoost.com/wp-content/uploads/2020/07/2020-07-31-10_41_00-Postman.png)
 
-You can always see the HyperFlex API Explorer on the cluster via : **HTTPS://HX Cluster IP Address/apiexplorer**
+You can always see the HyperFlex API Explorer on the cluster via : **HTTPS://HX_Cluster_IP_Address/apiexplorer**
   
