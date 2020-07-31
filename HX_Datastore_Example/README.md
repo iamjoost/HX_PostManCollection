@@ -3,7 +3,7 @@ HX APIs do need an token to authenticate. The following steps will guide you thr
 
 ####STEP1: 
 Start with filling in the HX IP address in the Variables HXCIP
-[ALT Text](https://i2.wp.com/iamjoost.com/wp-content/uploads/2020/07/Postman-hxcip.png)
+![ALT Text](https://i2.wp.com/iamjoost.com/wp-content/uploads/2020/07/Postman-hxcip.png)
 
 ####STEP2. 
 Fill in the username and password to get an Access Token.
