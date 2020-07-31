@@ -15,7 +15,7 @@ Hit **SEND** and the token will be copied into the Collection variable.
 Open STEP3: Get HX Cluster UUID and hit **SEND**.
 This Cluster UUID will be copied into the Collection variable **CUUID**.
 
-Now you can play with the Datastore collection.  
+#####Now you can play with the Datastore collection.  
 You can use the order of the DS numbering and this is not a requirement.
 
 When you create a Datastore, the Datastore UUID is saved in the variable **dsuuid**.  
