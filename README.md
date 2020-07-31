@@ -8,6 +8,5 @@ How to manage your datastores via APIs?
 With those APIs you can create, change and delete datastores.  
 Guidance of steps are in the directory.  
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](https://i0.wp.com/iamjoost.com/wp-content/uploads/2020/07/DS-Github.gif?fit=1280%2C720)
+![Alt Text](https://i0.wp.com/iamjoost.com/wp-content/uploads/2020/07/DS-Github.gif?fit=1280%2C720)
 
