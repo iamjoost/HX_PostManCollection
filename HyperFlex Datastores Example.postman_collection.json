@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "cbaf9f79-ff30-4ec8-9794-8a356ff4b226",
+		"name": "HyperFlex Datastores Example",
+		"description": "REST APIs for Datastore management on HyperFlex 4.0+ cluster.\r\n\r\n\r\nSTEP1: Start with filling in the HX IP address in the Variables HXCIP\r\n\r\nGoto\r\nSTEP2. \r\nFill in the username and password to get an Access Token.\r\nHit SEND and the token will be copied into the Collection variable.\r\nGo to \r\nSTEP3 to get the Cluster UUID.\r\nThis Cluster UUID will be copied into the Collection variable.\r\n\r\nNow you can play with the Datastore collection. You can use the order of the DS numbering and this is not a requirement.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Datastore",
+			"item": [
+				{
+					"name": "DS1: Get Datastores from HX Cluster",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HXCIP}}/coreapi/v1/clusters/{{CUUID}}/datastores",
+							"protocol": "https",
+							"host": [
+								"{{HXCIP}}"
+							],
+							"path": [
+								"coreapi",
+								"v1",
+								"clusters",
+								"{{CUUID}}",
+								"datastores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DS2: Create a Datastore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1ec907b4-8e53-4210-ad06-fbb4b42c8d5f",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set('dsuuid', jsonData.uuid)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"APITest\",\r\n  \"sizeInBytes\": 1024000000000,\r\n  \"dataBlockSizeInBytes\": 8192,\r\n  \"usageType\": \"NFS\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{HXCIP}}/coreapi/v1/clusters/{{CUUID}}/datastores",
+							"protocol": "https",
+							"host": [
+								"{{HXCIP}}"
+							],
+							"path": [
+								"coreapi",
+								"v1",
+								"clusters",
+								"{{CUUID}}",
+								"datastores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DS3: Get information from one Datastore",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HXCIP}}/coreapi/v1/clusters/{{CUUID}}/datastores/{{dsuuid}}",
+							"protocol": "https",
+							"host": [
+								"{{HXCIP}}"
+							],
+							"path": [
+								"coreapi",
+								"v1",
+								"clusters",
+								"{{CUUID}}",
+								"datastores",
+								"{{dsuuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DS4: Unmount / Mount Datastore",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"action\": \"UNMOUNT\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{HXCIP}}/coreapi/v1/clusters/{{CUUID}}/datastores/{{dsuuid}}",
+							"protocol": "https",
+							"host": [
+								"{{HXCIP}}"
+							],
+							"path": [
+								"coreapi",
+								"v1",
+								"clusters",
+								"{{CUUID}}",
+								"datastores",
+								"{{dsuuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DS5: Edit Datastore",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ChangeTest\",\r\n  \"sizeInBytes\": 2048000000000\r\n}"
+						},
+						"url": {
+							"raw": "https://{{HXCIP}}/coreapi/v1/clusters/{{CUUID}}/datastores/{{dsuuid}}",
+							"protocol": "https",
+							"host": [
+								"{{HXCIP}}"
+							],
+							"path": [
+								"coreapi",
+								"v1",
+								"clusters",
+								"{{CUUID}}",
+								"datastores",
+								"{{dsuuid}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DS6: Delete a Datastore",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{HXCIP}}/coreapi/v1/clusters/{{CUUID}}/datastores/{{dsuuid}}",
+							"protocol": "https",
+							"host": [
+								"{{HXCIP}}"
+							],
+							"path": [
+								"coreapi",
+								"v1",
+								"clusters",
+								"{{CUUID}}",
+								"datastores",
+								"{{dsuuid}}"
+							],
+							"query": [
+								{
+									"key": "dsuuid",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "STEP 2: Get HX Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6de32e6a-4451-4f83-badc-bbdd637b3550",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set('HXToken', jsonData.access_token) \r",
+							"pm.collectionVariables.set('HXRefreshToken', jsonData.refresh_token) \r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jvdmade@vsphere.local\",\r\n    \"password\": \"Cisco123!\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{HXCIP}}/aaa/v1/auth?grant_type=password",
+					"protocol": "https",
+					"host": [
+						"{{HXCIP}}"
+					],
+					"path": [
+						"aaa",
+						"v1",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STEP 3: Get HX Cluster UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a121e55-4b16-4757-a67d-64c733f0b586",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set('CUUID', jsonData[0].uuid) \r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{HXCIP}}/coreapi/v1/clusters",
+					"protocol": "https",
+					"host": [
+						"{{HXCIP}}"
+					],
+					"path": [
+						"coreapi",
+						"v1",
+						"clusters"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{HXToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "27c2dfe8-52b2-4cf4-ac86-e8e0eff052a8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0f8e3ed3-0cae-44c5-b21d-6d52f5619869",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "7bd3d92b-3e93-49d0-b70e-7e1358a1aedc",
+			"key": "HXCIP",
+			"value": ""
+		},
+		{
+			"id": "c3d2abf6-27c2-45c3-b7bb-02bbdbf133cd",
+			"key": "HXToken",
+			"value": ""
+		},
+		{
+			"id": "ee71e5d1-7730-4f07-846c-c0d97cfbee24",
+			"key": "CUUID",
+			"value": ""
+		},
+		{
+			"id": "54a7f234-8e61-4d4e-a7ca-f56188b84135",
+			"key": "HXRefreshToken",
+			"value": ""
+		},
+		{
+			"id": "8c8573a3-e331-4980-9066-a25e98bab88b",
+			"key": "dsuuid",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
