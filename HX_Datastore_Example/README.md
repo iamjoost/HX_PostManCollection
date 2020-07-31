@@ -1,15 +1,15 @@
-##REST APIs for Datastore management on HyperFlex 4.0+ cluster.
+## REST APIs for Datastore management on HyperFlex 4.0+ cluster.
 HX APIs do need an token to authenticate. The following steps will guide you through a process which will get the HX Token en Cluster UUID, which is needed for the Datastores.
 
-####STEP1: 
+#### STEP1: 
 Start with filling in the HX IP address in the Variables HXCIP
 ![ALT Text](https://i2.wp.com/iamjoost.com/wp-content/uploads/2020/07/Postman-hxcip.png)
 
-####STEP2. 
+#### STEP2. 
 Fill in the username and password to get an Access Token.
 Hit SEND and the token will be copied into the Collection variable.
 
-####STEP3 to get the Cluster UUID.
+#### STEP3 to get the Cluster UUID.
 This Cluster UUID will be copied into the Collection variable.
 
 Now you can play with the Datastore collection.  
