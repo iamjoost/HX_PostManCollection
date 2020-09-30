@@ -1,7 +1,7 @@
 Here are some Postman collections to start with working with the Cisco HyperFlex APIs.
 The collections are arranged in directories.
 
-For an introduction of HyperFlex APIs goto: https://community.cisco.com/t5/data-center-videos/hyperflex-4-0-api-introduction-video/ba-p/4121958
+For an introduction of HyperFlex APIs goto: https://www.youtube.com/watch?v=l5Fwmyb8pgM&t=179s
 
 #### HyperFlex Datastore Examples  
 How to manage your datastores via APIs?  
