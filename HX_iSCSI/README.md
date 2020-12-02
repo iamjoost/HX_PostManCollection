@@ -15,13 +15,7 @@ Hit **SEND** and the token will be copied into the Collection variable.
 Open STEP3: Get HX Cluster UUID and hit **SEND**.
 This Cluster UUID will be copied into the Collection variable **CUUID**.
 
-#####Now you can play with the Datastore collection.  
-You can use the order of the DS numbering and this is not a requirement.
-
-When you create a Datastore, the Datastore UUID is saved in the variable **dsuuid**.  
-The Edit Datastore and Delete datastore are using these variables.
-
- ![ALT Text](https://i2.wp.com/iamjoost.com/wp-content/uploads/2020/07/2020-07-31-10_41_00-Postman.png)
+#####Now you can play with the HX iSCSI collection.  
 
 You can always see the HyperFlex API Explorer on the cluster via : **HTTPS://HX_Cluster_IP_Address/apiexplorer**
   
