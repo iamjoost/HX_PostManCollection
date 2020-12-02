@@ -1,5 +1,5 @@
-## REST APIs for Datastore management on HyperFlex 4.0+ cluster.
-HX APIs do need an token to authenticate. The following steps will guide you through a process which will get the HX Token en Cluster UUID, which is needed for the Datastores.
+## REST APIs for iSCSI on HyperFlex 4.5+ cluster.
+HX APIs do need an token to authenticate. The following steps will guide you through a process which will get the HX Token en Cluster UUID, which is needed for the some API calls.
 
 #### STEP1: 
 Start with filling in the HX IP address in the Variables HXCIP
